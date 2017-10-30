@@ -14,7 +14,7 @@ import (
 	nats "github.com/nats-io/go-nats"
 )
 
-//go:generate protoc --go_out=../../.. nrpc.proto
+//go:generate protoc -I. -I../../.. --gogo_out=Mgoogle/protobuf/descriptor.proto=github.com/gogo/protobuf/protoc-gen-gogo/descriptor:../../.. nrpc.proto
 
 type NatsConn interface {
 	Request(subj string, data []byte, timeout time.Duration) (*nats.Msg, error)

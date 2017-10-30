@@ -13,7 +13,7 @@ import (
 	"github.com/rapidloop/nrpc"
 )
 
-//go:generate protoc --go_out=. nrpc_test.proto
+//go:generate protoc -I. -I../../.. --gogo_out=. nrpc_test.proto
 //go:generate mv nrpc_test.pb.go nrpcpb_test.go
 
 func TestBasic(t *testing.T) {
